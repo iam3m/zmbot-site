@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" width="180" height="60">
+  <!-- Tiny chart glyph -->
+  <g transform="translate(0,8)">
+    <circle cx="22" cy="22" r="20" fill="none" stroke="#1c1c22" stroke-width="1.5"/>
+    <path d="M6 34 L16 18 L22 26 L30 10 L38 14"
+          fill="none" stroke="#ff8c00" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="38" cy="14" r="2.8" fill="#00d26a"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="54" y="40"
+        font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="800" letter-spacing="-0.5"
+        fill="#e8edf2">
+    ZM<tspan fill="#ff8c00">BOT</tspan>
+  </text>
+</svg>
