@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Core -->
-<title>ZMBOT — The $199 bot that traded +$74,622 in one day | Live dashboard</title>
+<title>ZMBOT — The $199 bot that traded +$75,392 in one day | Live dashboard</title>
 <meta name="description" content="Automated trading bot for Hyperliquid. Public live dashboard — no hidden trades, no backtests. $199 once (early-access price, was $149), full Python source, 30-day money-back. Built on a 3-year manual strategy by Z.M (9K followers, 2,000+ community).">
 <meta name="keywords" content="crypto trading bot, automated trading bot, bitcoin bot, hyperliquid bot, trading bot 2026, ZM trading strategy, 4-EMA system, gold trading bot">
 <meta name="author" content="Zoran Miljak - Mr. Z.M">
@@ -22,19 +22,19 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ZM Bot — Automated Trading">
 <meta property="og:url" content="https://zm-bot.com/">
-<meta property="og:title" content="The $199 bot that traded +$74,622 in one day — ZMBOT">
+<meta property="og:title" content="The $199 bot that traded +$75,392 in one day — ZMBOT">
 <meta property="og:description" content="April 29, 2026. 8 trades + 3 still running. 6W/2L. 75% win rate. Every trade public on dashboard.zm-bot.com. Full Python source. 30-day money-back. Built on a 3-year manual strategy.">
 <meta property="og:image" content="https://zm-bot.com/og.svg">
 <meta property="og:image:type" content="image/svg+xml">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The $199 bot that traded +$74,622 in one day — ZMBOT">
+<meta property="og:image:alt" content="The $199 bot that traded +$75,392 in one day — ZMBOT">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@iam.3.m">
 <meta name="twitter:creator" content="@iam.3.m">
-<meta name="twitter:title" content="The $199 bot that traded +$74,622 in one day — ZMBOT">
+<meta name="twitter:title" content="The $199 bot that traded +$75,392 in one day — ZMBOT">
 <meta name="twitter:description" content="April 29, 2026. 8 trades + 3 still running. 6W/2L. 75% win rate. Public live dashboard. Full Python source. $199 once (early-access). 30-day money-back at zm-bot.com">
 <meta name="twitter:image" content="https://zm-bot.com/og.svg">
 
@@ -1009,7 +1009,7 @@ footer{
       Live trading · Public dashboard · No screenshots
     </div>
     <h1 class="hero-title">
-      The $199 bot<br>that traded<br><span>+$74,622</span><br><em>in one day.</em>
+      The $199 bot<br>that traded<br><span>+$75,392</span><br><em>in one day.</em>
     </h1>
     <p class="hero-sub">
       April 17, 2026. 14 trades. <strong>10 wins, 4 losses</strong>. Four take-profits in two hours.
@@ -1053,13 +1053,13 @@ footer{
 </section>
 
 <!-- ── PROOF STRIP ── -->
-<!-- 2026-04-29: best-day record beaten — was Apr 24 +$26,280, now Apr 29 +$74,622.
+<!-- 2026-04-29: best-day record beaten — was Apr 24 +$26,280, now Apr 29 +$75,392.
      IDs added so the live fetcher in the JS section below can update these
      dynamically as future records get set. -->
 <div class="proof-strip">
   <div class="proof-item">
     <div>
-      <div class="proof-val" style="color:var(--green)" id="proofBestDay">+$74,622</div>
+      <div class="proof-val" style="color:var(--green)" id="proofBestDay">+$75,392</div>
       <div class="proof-lbl">Best trading day<br><span id="proofBestDate">Apr 29, 2026</span></div>
     </div>
   </div>
@@ -1119,17 +1119,22 @@ footer{
           </tr>
         </thead>
         <tbody id="perfBody" style="font-size:14px">
-          <!-- Populated live from dashboard.zm-bot.com/api/trades; this fallback only renders during dashboard outages.
-               Most recent confirmed day is shown below. Update the dates/numbers here whenever the headline day changes. -->
-          <tr style="border-bottom:1px solid rgba(255,255,255,.04);background:rgba(16,185,129,.05)"><td style="padding:10px 8px;color:var(--bright);font-weight:700">Wed Apr 29 ⭐</td><td style="padding:10px 8px;text-align:right;font-weight:700">8</td><td style="padding:10px 8px;text-align:right;font-weight:700">6 / 2</td><td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:800;font-size:16px">+$74,622</td></tr>
-          <tr><td colspan="4" style="padding:14px 8px;text-align:center;font-size:12px;color:var(--dim);font-style:italic">Live 7-day breakdown loads from <a href="https://dashboard.zm-bot.com" target="_blank" style="color:var(--orange)">dashboard.zm-bot.com</a> — every trade is timestamped and public.</td></tr>
+          <!-- Populated live from dashboard.zm-bot.com/api/trades on every page load. This static fallback only
+               renders if the fetch fails. Numbers below are the real 6-day window pulled from the API on Apr 29 2026
+               (56 trades, 34W/22L, +$143,028 net). Refresh from /api/trades whenever you touch this section. -->
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:10px 8px;color:var(--bright)">Fri Apr 24</td><td style="padding:10px 8px;text-align:right">7</td><td style="padding:10px 8px;text-align:right">5 / 2</td><td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:700">+$26,280</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:10px 8px;color:var(--bright)">Sat Apr 25</td><td style="padding:10px 8px;text-align:right">3</td><td style="padding:10px 8px;text-align:right">2 / 1</td><td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:700">+$40,654</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:10px 8px;color:var(--bright)">Sun Apr 26</td><td style="padding:10px 8px;text-align:right">6</td><td style="padding:10px 8px;text-align:right">2 / 4</td><td style="padding:10px 8px;text-align:right;color:var(--red);font-weight:700">−$1,390</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:10px 8px;color:var(--bright)">Mon Apr 27</td><td style="padding:10px 8px;text-align:right">12</td><td style="padding:10px 8px;text-align:right">5 / 7</td><td style="padding:10px 8px;text-align:right;color:var(--red);font-weight:700">−$1,332</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:10px 8px;color:var(--bright)">Tue Apr 28</td><td style="padding:10px 8px;text-align:right">15</td><td style="padding:10px 8px;text-align:right">10 / 5</td><td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:700">+$3,423</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04);background:rgba(16,185,129,.05)"><td style="padding:10px 8px;color:var(--bright);font-weight:700">Wed Apr 29 ⭐</td><td style="padding:10px 8px;text-align:right;font-weight:700">13</td><td style="padding:10px 8px;text-align:right;font-weight:700">10 / 3</td><td style="padding:10px 8px;text-align:right;color:var(--green);font-weight:800;font-size:16px">+$75,392</td></tr>
         </tbody>
         <tfoot id="perfFoot">
-          <tr style="border-top:2px solid var(--border)"><td style="padding:14px 8px;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--orange)">Today's Net</td><td style="padding:14px 8px;text-align:right;font-weight:700">8</td><td style="padding:14px 8px;text-align:right;font-weight:700">6 / 2</td><td style="padding:14px 8px;text-align:right;color:var(--green);font-weight:800;font-size:18px">+$74,622</td></tr>
+          <tr style="border-top:2px solid var(--border)"><td style="padding:14px 8px;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--orange)">6-Day Net</td><td style="padding:14px 8px;text-align:right;font-weight:700">56</td><td style="padding:14px 8px;text-align:right;font-weight:700">34 / 22</td><td style="padding:14px 8px;text-align:right;color:var(--green);font-weight:800;font-size:18px">+$143,028</td></tr>
         </tfoot>
       </table>
       <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--dim);line-height:1.6">
-        <strong style="color:var(--bright)">⚠️ Transparency note:</strong> Drawdown days are included. Most competitors hide their losses — we don't. Today's <strong style="color:var(--green)">+$74,622</strong> headline includes a single operator-issued thesis trade on Brent (+$71,473) — the algorithm-only component was ~$3,150. We mark force-opens explicitly in the trade log. See every trade with timestamps at <a href="https://dashboard.zm-bot.com" target="_blank" style="color:var(--orange)">dashboard.zm-bot.com</a>.
+        <strong style="color:var(--bright)">⚠️ Transparency note:</strong> Drawdown days are included. Most competitors hide their losses — we don't. Today's <strong style="color:var(--green)">+$75,392</strong> headline includes a single operator-issued thesis trade on Brent (+$71,473) — the algorithm-only component was ~$3,150. We mark force-opens explicitly in the trade log. See every trade with timestamps at <a href="https://dashboard.zm-bot.com" target="_blank" style="color:var(--orange)">dashboard.zm-bot.com</a>.
       </div>
       <div id="perfStatus" style="margin-top:12px;font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px;justify-content:center">
         <span id="perfDot" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4a4a52"></span>
@@ -2038,7 +2043,7 @@ async function loadLiveTerminal(){
 // ── DYNAMIC BEST-DAY FETCH ────────────────────────
 // Walks /api/state.all_trades, groups by UTC day, picks the highest-PnL day,
 // and updates the proof-strip with that record. Falls back to the hardcoded
-// values (Apr 29 +$74,622) if the fetch fails. Refreshes every 5 minutes.
+// values (Apr 29 +$75,392) if the fetch fails. Refreshes every 5 minutes.
 async function loadBestDay(){
   try {
     const ctrl = new AbortController();
