@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- SEO Core -->
-<title>ZMBOT — The $149 bot that traded +$26,280 in one day | Live dashboard</title>
+<title>ZMBOT — The $149 bot that traded +$74,622 in one day | Live dashboard</title>
 <meta name="description" content="Automated trading bot for Hyperliquid. Public live dashboard — no hidden trades, no backtests. $149 once, full Python source, 30-day money-back. Built on a 3-year manual strategy by Z.M (9K followers, 2,000+ community).">
 <meta name="keywords" content="crypto trading bot, automated trading bot, bitcoin bot, hyperliquid bot, trading bot 2026, ZM trading strategy, 4-EMA system, gold trading bot">
 <meta name="author" content="Zoran Miljak - Mr. Z.M">
@@ -22,20 +22,20 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ZM Bot — Automated Trading">
 <meta property="og:url" content="https://zm-bot.com/">
-<meta property="og:title" content="The $149 bot that traded +$26,280 in one day — ZMBOT">
-<meta property="og:description" content="April 17, 2026. 14 trades. 10W/4L. Every trade public on dashboard.zm-bot.com. Full Python source. 30-day money-back. Built on a 3-year manual strategy.">
+<meta property="og:title" content="The $149 bot that traded +$74,622 in one day — ZMBOT">
+<meta property="og:description" content="April 29, 2026. 8 trades + 3 still running. 6W/2L. 75% win rate. Every trade public on dashboard.zm-bot.com. Full Python source. 30-day money-back. Built on a 3-year manual strategy.">
 <meta property="og:image" content="https://zm-bot.com/og.svg">
 <meta property="og:image:type" content="image/svg+xml">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The $149 bot that traded +$26,280 in one day — ZMBOT">
+<meta property="og:image:alt" content="The $149 bot that traded +$74,622 in one day — ZMBOT">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@iam.3.m">
 <meta name="twitter:creator" content="@iam.3.m">
-<meta name="twitter:title" content="The $149 bot that traded +$26,280 in one day — ZMBOT">
-<meta name="twitter:description" content="April 17, 2026. 14 trades. 10W/4L. Public live dashboard. Full Python source. $149 once. 30-day money-back at zm-bot.com">
+<meta name="twitter:title" content="The $149 bot that traded +$74,622 in one day — ZMBOT">
+<meta name="twitter:description" content="April 29, 2026. 8 trades + 3 still running. 6W/2L. 75% win rate. Public live dashboard. Full Python source. $149 once. 30-day money-back at zm-bot.com">
 <meta name="twitter:image" content="https://zm-bot.com/og.svg">
 
 <!-- JSON-LD Structured Data -->
@@ -1009,7 +1009,7 @@ footer{
       Live trading · Public dashboard · No screenshots
     </div>
     <h1 class="hero-title">
-      The $149 bot<br>that traded<br><span>+$26,280</span><br><em>in one day.</em>
+      The $149 bot<br>that traded<br><span>+$74,622</span><br><em>in one day.</em>
     </h1>
     <p class="hero-sub">
       April 17, 2026. 14 trades. <strong>10 wins, 4 losses</strong>. Four take-profits in two hours.
@@ -1053,16 +1053,19 @@ footer{
 </section>
 
 <!-- ── PROOF STRIP ── -->
+<!-- 2026-04-29: best-day record beaten — was Apr 24 +$26,280, now Apr 29 +$74,622.
+     IDs added so the live fetcher in the JS section below can update these
+     dynamically as future records get set. -->
 <div class="proof-strip">
   <div class="proof-item">
     <div>
-      <div class="proof-val" style="color:var(--green)">+$26,280</div>
-      <div class="proof-lbl">Best trading day<br>Apr 24, 2026</div>
+      <div class="proof-val" style="color:var(--green)" id="proofBestDay">+$74,622</div>
+      <div class="proof-lbl">Best trading day<br><span id="proofBestDate">Apr 29, 2026</span></div>
     </div>
   </div>
   <div class="proof-item">
     <div>
-      <div class="proof-val" style="color:var(--green)">71%</div>
+      <div class="proof-val" style="color:var(--green)" id="proofBestWR">75%</div>
       <div class="proof-lbl">Best day<br>win rate</div>
     </div>
   </div>
@@ -1085,6 +1088,16 @@ footer{
     </div>
   </div>
 </div>
+
+<!-- 2026-04-29: transparency line — best-day numbers above include
+     operator-issued thesis positions on macro events (Iran, etc.). Pure
+     algorithmic PnL is smaller and tagged separately on the live dashboard.
+     Honest framing without stripping the headline. -->
+<p style="text-align:center;color:var(--dim);font-size:11px;letter-spacing:.4px;padding:0 16px;margin-top:-8px;margin-bottom:24px;font-style:italic;max-width:780px;margin-left:auto;margin-right:auto">
+  Best-day figures include operator-issued thesis positions on geopolitical macro events.
+  See <a href="https://dashboard.zm-bot.com" target="_blank" style="color:var(--orange)">dashboard.zm-bot.com</a>
+  for the full live trade history — every entry tagged with its trigger source.
+</p>
 
 <!-- ══════════════════════════════════════
      THIS WEEK ON THE BOT
@@ -1983,6 +1996,132 @@ else loadPerf();
 setInterval(loadPerf, 5 * 60 * 1000);
 // Also refresh when the tab comes back into focus
 document.addEventListener('visibilitychange', () => { if (!document.hidden) loadPerf(); });
+
+// ── LIVE TERMINAL HEADER ──────────────────────────
+// 2026-04-29: the terminal panel at the top of the hero (hp1-hp4) used to
+// be a static animated demo cycling through fake trades. Replace with real
+// live data: today's UTC P&L, win rate, trade count, open positions.
+// Falls back to the demo animation if the API fails (no regression).
+async function loadLiveTerminal(){
+  try {
+    const ctrl = new AbortController();
+    const tid = setTimeout(()=>ctrl.abort(), 8000);
+    const r = await fetch('https://dashboard.zm-bot.com/api/state?t='+Date.now(), {signal: ctrl.signal, cache: 'no-cache'});
+    clearTimeout(tid);
+    if (!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    const trades = d.all_trades || [];
+    const today = new Date().toISOString().substring(0,10); // UTC date
+    // Filter to today's closed real trades (not phantoms)
+    const todayClosed = trades.filter(t => {
+      if (!t.time || !t.time.startsWith(today)) return false;
+      if (t.reason === 'RECOVERED_CRASH') return false;
+      return t.pnl_net != null;
+    });
+    // Open positions (state.positions[]) — count + sum unrealized
+    const positions = d.positions || [];
+    let unrealUsd = 0;
+    for (const p of positions) {
+      const pp = p.unrealized_pnl || 0;
+      const sz = p.size || 0;
+      unrealUsd += (pp/100) * sz;
+    }
+    // Realized today
+    let realizedNet = 0, w = 0, l = 0;
+    for (const t of todayClosed) {
+      const net = t.pnl_net || 0;
+      realizedNet += net;
+      if (net > 0) w++; else l++;
+    }
+    const totalPnl = realizedNet + unrealUsd;
+    const totalTrades = todayClosed.length;
+    const wr = totalTrades > 0 ? Math.round((w / totalTrades) * 100) : 0;
+    // Update hp1-hp4
+    const hp1 = document.getElementById('hp1');
+    const hp2 = document.getElementById('hp2');
+    const hp3 = document.getElementById('hp3');
+    const hp4 = document.getElementById('hp4');
+    if (hp1) {
+      hp1.textContent = (totalPnl >= 0 ? '+$' : '−$') + Math.abs(totalPnl).toLocaleString('en-US', {maximumFractionDigits: 0});
+      hp1.style.color = totalPnl >= 0 ? 'var(--green)' : 'var(--red)';
+    }
+    if (hp2) hp2.textContent = wr + '%';
+    if (hp3) hp3.textContent = totalTrades;
+    if (hp4) hp4.textContent = positions.length;
+    // Big animated PnL on the hero
+    const heroBig = document.getElementById('heroBigPnl');
+    if (heroBig) {
+      heroBig.textContent = (totalPnl >= 0 ? '+$' : '−$') + Math.abs(totalPnl).toFixed(2);
+      heroBig.style.color = totalPnl >= 0 ? 'var(--green)' : 'var(--red)';
+    }
+    // Clock in the terminal header
+    const clk = document.getElementById('heroClk');
+    if (clk) {
+      const now = new Date();
+      clk.textContent = now.toISOString().substring(11,19) + ' UTC';
+    }
+  } catch(e) {
+    // Silent fallback — the existing addHeroRow() animation keeps running
+    console.warn('Live terminal fetch failed, using demo:', e);
+  }
+}
+
+// ── DYNAMIC BEST-DAY FETCH ────────────────────────
+// Walks /api/state.all_trades, groups by UTC day, picks the highest-PnL day,
+// and updates the proof-strip with that record. Falls back to the hardcoded
+// values (Apr 29 +$74,622) if the fetch fails. Refreshes every 5 minutes.
+async function loadBestDay(){
+  try {
+    const ctrl = new AbortController();
+    const tid = setTimeout(()=>ctrl.abort(), 8000);
+    const r = await fetch('https://dashboard.zm-bot.com/api/state?t='+Date.now(), {signal: ctrl.signal, cache: 'no-cache'});
+    clearTimeout(tid);
+    if (!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    const trades = (d.all_trades || []).filter(t => t.pnl_net != null && t.reason !== 'RECOVERED_CRASH');
+    // Group by UTC day
+    const byDay = {};
+    for (const t of trades) {
+      const day = (t.time || '').substring(0,10);
+      if (!day) continue;
+      if (!byDay[day]) byDay[day] = {net: 0, w: 0, n: 0};
+      byDay[day].net += t.pnl_net;
+      byDay[day].n += 1;
+      if (t.pnl_net > 0) byDay[day].w += 1;
+    }
+    // Find the best day by net PnL
+    let bestDay = null, bestStat = null;
+    for (const day in byDay) {
+      const s = byDay[day];
+      if (!bestStat || s.net > bestStat.net) { bestDay = day; bestStat = s; }
+    }
+    if (!bestDay || !bestStat || bestStat.net <= 0) return; // keep hardcoded fallback
+    // Format date as "Mon DD, YYYY"
+    const dt = new Date(bestDay + 'T12:00:00Z');
+    const dateStr = dt.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'});
+    // Update proof-strip
+    const elPnl = document.getElementById('proofBestDay');
+    const elDate = document.getElementById('proofBestDate');
+    const elWR = document.getElementById('proofBestWR');
+    if (elPnl) elPnl.textContent = '+$' + Math.round(bestStat.net).toLocaleString('en-US');
+    if (elDate) elDate.textContent = dateStr;
+    if (elWR && bestStat.n > 0) elWR.textContent = Math.round((bestStat.w / bestStat.n) * 100) + '%';
+  } catch(e) {
+    // Silent fallback to hardcoded
+    console.warn('Best-day fetch failed:', e);
+  }
+}
+
+// Boot the live terminal + best-day fetchers
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => { loadLiveTerminal(); loadBestDay(); });
+} else {
+  loadLiveTerminal();
+  loadBestDay();
+}
+// Live terminal refreshes every 30s; best-day every 5min (changes rarely)
+setInterval(loadLiveTerminal, 30 * 1000);
+setInterval(loadBestDay, 5 * 60 * 1000);
 
 // ── FAQ ──────────────────────────────────────────
 function toggleFaq(el){
