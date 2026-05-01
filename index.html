@@ -1796,7 +1796,7 @@ footer{
     Past performance is not indicative of future results. Only trade with capital you can afford to lose entirely.
     MrZMTradingBot is a software tool — not financial advice.
   </div>
-  <div class="footer-copy">© 2026 ZMBOT.COM · MR. Z.M · ALL RIGHTS RESERVED</div>
+  <div class="footer-copy">© 2026 ZMBOT.COM · MR. Z.M · ALL RIGHTS RESERVED · <span id="liveBotVersion" style="opacity:.6">v—</span></div>
 </footer>
 
 <script>
@@ -1984,6 +1984,12 @@ async function loadLiveTerminal(){
     clearTimeout(tid);
     if (!r.ok) throw new Error('HTTP '+r.status);
     const d = await r.json();
+    // 2026-05-01 (v1.2.16): show running bot version in footer so site
+    // visitors can see we're deploying real fixes, not stale code.
+    if (d.bot_version) {
+      const _v = document.getElementById('liveBotVersion');
+      if (_v) _v.textContent = 'v' + d.bot_version;
+    }
     const trades = d.all_trades || [];
     const today = new Date().toISOString().substring(0,10); // UTC date
     // Filter to today's closed real trades (not phantoms)
