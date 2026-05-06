@@ -6,7 +6,7 @@
 
 <!-- SEO Core -->
 <title>ZMBOT — Cloud trading bot from $119/mo · +$75,392 in one day</title>
-<meta name="description" content="Cloud-hosted trading bot for Hyperliquid. From $119/mo — we run it 24/7, you keep the profits. 27 markets, public live dashboard, cancel anytime. Standalone $249 also available for beginners. Built on a 3-year manual strategy by Z.M (9K followers, 2,000+ community).">
+<meta name="description" content="Cloud-hosted trading bot for Hyperliquid. From $119/mo — we run it 24/7, you trade from your phone. iOS, Android, desktop. 27 markets, public live dashboard, cancel anytime. Standalone $249 also available for beginners. Built on a 3-year manual strategy by Z.M (9K followers, 2,000+ community).">
 <meta name="keywords" content="cloud trading bot, hosted crypto bot, automated trading bot, hyperliquid bot, hyperliquid cloud bot, bitcoin bot, trading bot 2026, ZM trading strategy, 4-EMA system, gold trading bot">
 <meta name="author" content="Zoran Miljak - Mr. Z.M">
 <meta name="robots" content="index, follow">
@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="ZM Bot — Cloud Trading">
 <meta property="og:url" content="https://zm-bot.com/">
 <meta property="og:title" content="Cloud trading bot — From $119/mo · Traded +$75,392 in one day">
-<meta property="og:description" content="The bot that traded +$75,392 in one day — now hosted for you. Cloud-hosted on Hyperliquid, 27 markets, public live dashboard. Cancel anytime. Standalone $249 also available.">
+<meta property="og:description" content="The bot that traded +$75,392 in one day — now hosted for you. Cloud on Hyperliquid, 27 markets, trade from your phone (iOS · Android · Desktop). Cancel anytime. Standalone $249 also available.">
 <meta property="og:image" content="https://zm-bot.com/og.svg">
 <meta property="og:image:type" content="image/svg+xml">
 <meta property="og:image:width" content="1200">
@@ -35,7 +35,7 @@
 <meta name="twitter:site" content="@iam.3.m">
 <meta name="twitter:creator" content="@iam.3.m">
 <meta name="twitter:title" content="Cloud trading bot — From $119/mo · Traded +$75,392 in one day">
-<meta name="twitter:description" content="The bot that traded +$75,392 in one day — now hosted for you. From $119/mo on Hyperliquid, 27 markets, public live dashboard. Cancel anytime. zm-bot.com">
+<meta name="twitter:description" content="The bot that traded +$75,392 in one day — now hosted for you. From $119/mo on Hyperliquid, 27 markets, trade from your phone (iOS · Android · Desktop). zm-bot.com">
 <meta name="twitter:image" content="https://zm-bot.com/og.svg">
 
 <!-- JSON-LD Structured Data -->
@@ -80,7 +80,7 @@
   "operatingSystem": "Cloud-hosted (no install) or Windows, Linux, macOS",
   "screenshot": "https://zm-bot.com/og.png",
   "featureList": [
-    "Cloud-hosted 24/7 — no PC required",
+    "Cloud-hosted 24/7 — iOS, Android, and desktop web dashboard",
     "27 markets: crypto, commodities, equities, indices",
     "23 chart pattern detection",
     "Self-learning AI engine",
@@ -591,6 +591,36 @@ section{padding:80px 24px}
 /* ══════════════════════════════════════
    RISK MANAGEMENT
 ══════════════════════════════════════ */
+/* ══════════════════════════════════════
+   MOBILE DASHBOARD SECTION
+══════════════════════════════════════ */
+.mobile-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+  margin-top:32px;max-width:1100px;margin-left:auto;margin-right:auto;
+}
+.mobile-card{display:flex;flex-direction:column;align-items:center;gap:14px}
+.mobile-img-wrap{
+  width:100%;aspect-ratio:1206/2622;
+  border-radius:22px;overflow:hidden;
+  border:1px solid var(--border2);
+  box-shadow:0 24px 48px -12px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);
+  background:#000;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.mobile-img-wrap:hover{
+  transform:translateY(-4px);
+  box-shadow:0 32px 56px -12px rgba(0,212,255,.18),0 0 0 1px rgba(0,212,255,.25);
+}
+.mobile-img-wrap img{width:100%;height:100%;display:block;object-fit:cover}
+.mobile-label{
+  font-family:var(--sans);font-size:10px;letter-spacing:1.5px;
+  color:var(--dim);text-transform:uppercase;text-align:center;
+}
+.mobile-label strong{
+  color:var(--bright);font-weight:700;display:block;
+  font-size:13px;letter-spacing:0;text-transform:none;margin-bottom:3px;
+}
+
 #risk{}
 .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:32px}
 .risk-card{
@@ -942,6 +972,9 @@ footer{
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
+@media(max-width:900px){
+  .mobile-grid{grid-template-columns:repeat(2,1fr);gap:32px;max-width:560px}
+}
 @media(max-width:700px){
   .about-grid,.strategy-grid{grid-template-columns:1fr}
   .feat-grid{grid-template-columns:1fr 1fr}
@@ -951,6 +984,16 @@ footer{
   .proof-item{padding:8px 18px}
   .tp-metrics{grid-template-columns:repeat(2,1fr)}
   .risk-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .mobile-grid{
+    display:flex;gap:18px;
+    overflow-x:auto;overflow-y:visible;
+    scroll-snap-type:x mandatory;
+    padding:8px 24px 24px;margin-left:-24px;margin-right:-24px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .mobile-card{flex:0 0 72%;scroll-snap-align:center}
 }
 @media(max-width:480px){
   .feat-grid{grid-template-columns:1fr}
@@ -980,7 +1023,7 @@ footer{
   <div class="psb-dot"></div>
   <div class="psb-tag">Cloud</div>
   <div class="psb-text">
-    Cloud bot is <strong>live</strong> — we host it 24/7, <span>you keep the profits</span>
+    Cloud bot is <strong>live</strong> — <span>trade from your phone</span>, we host it 24/7
   </div>
   <a href="#pricing" class="psb-cta">Try Cloud — From $119/mo →</a>
 </div>
@@ -1022,7 +1065,7 @@ footer{
       The bot that traded<br><span>+$75,392</span><br><em>in one day.</em><br><small style="display:block;font-size:.42em;font-weight:600;letter-spacing:-.5px;color:var(--bright);margin-top:18px;font-family:var(--sans)">Now hosted for you — from <strong style="color:var(--orange)">$119/mo</strong></small>
     </h1>
     <p class="hero-sub">
-      April 29, 2026. 13 trades. <strong>10 wins, 3 losses</strong>. We run the bot 24/7 on our servers — you connect your Hyperliquid wallet and watch it work. No PC, no setup, no babysitting. <strong>Cancel anytime.</strong>
+      April 29, 2026. 13 trades. <strong>10 wins, 3 losses</strong>. We run the bot 24/7 on our servers — you connect your Hyperliquid wallet and watch every trade <strong>from your phone, tablet, or desktop</strong>. iOS, Android, anything with a browser. <strong>Cancel anytime.</strong>
     </p>
     <div class="hero-btns">
       <a href="#pricing" class="btn-primary">☁️ Try Cloud — From $119/mo →</a>
@@ -1476,6 +1519,41 @@ footer{
 </section>
 
 <!-- ══════════════════════════════════════
+     MOBILE DASHBOARD
+══════════════════════════════════════ -->
+<section id="mobile">
+  <div class="section-inner">
+    <div class="section-label" style="color:var(--cyan)">📱 Mobile Dashboard</div>
+    <h2 class="section-title">Your bot.<br><span>In your pocket.</span></h2>
+    <p class="section-sub"><strong style="color:var(--cyan)">iOS · Android · Desktop.</strong> The live web dashboard works on any phone — no App Store install, no native app to update. Watch every trade, close positions, and monitor P&amp;L from anywhere.</p>
+    <div class="mobile-grid reveal">
+      <div class="mobile-card">
+        <div class="mobile-img-wrap"><img src="mobile-home.png" alt="ZMBOT mobile dashboard — Home view showing today's P&L +$2,585 with 100% win rate, all-time 67% WR across 177 trades, +$390,411 cumulative" loading="lazy"></div>
+        <div class="mobile-label"><strong>Today's P&amp;L</strong>Daily + all-time stats</div>
+      </div>
+      <div class="mobile-card">
+        <div class="mobile-img-wrap"><img src="mobile-open.png" alt="ZMBOT mobile dashboard — Open positions screen showing Hyperliquid LONG +$329, Natural Gas LONG +$45, with live SL, TP, peak P&L and leverage" loading="lazy"></div>
+        <div class="mobile-label"><strong>Live positions</strong>SL · TP · peak · leverage</div>
+      </div>
+      <div class="mobile-card">
+        <div class="mobile-img-wrap"><img src="mobile-trades.png" alt="ZMBOT mobile dashboard — Recent trades feed showing Bitcoin, Natural Gas, WTI Oil, Brent, Silver wins with timestamps and exit reasons" loading="lazy"></div>
+        <div class="mobile-label"><strong>Recent trades</strong>Every entry, exit, P&amp;L</div>
+      </div>
+      <div class="mobile-card">
+        <div class="mobile-img-wrap"><img src="mobile-markets.png" alt="ZMBOT mobile dashboard — Active markets view with Brent Oil, WTI, Gold, Bitcoin showing live RSI, bias, 15m trend and net P&L per ticker" loading="lazy"></div>
+        <div class="mobile-label"><strong>All 27 markets</strong>RSI · bias · live net P&amp;L</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;font-size:12px;color:var(--dim);max-width:540px;margin-left:auto;margin-right:auto;line-height:1.7">
+      <strong style="color:var(--bright)">100% web — no app to install.</strong> Bookmark <a href="https://dashboard.zm-bot.com" target="_blank" style="color:var(--cyan);text-decoration:underline">dashboard.zm-bot.com</a> to your phone's home screen and it behaves like a native app — full screen, fast, always live. Cloud customers get the same dashboard scoped to their own account.
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="https://dashboard.zm-bot.com" target="_blank" class="btn-secondary" style="display:inline-block">📱 Open Live Dashboard on Your Phone →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
      RISK
 ══════════════════════════════════════ -->
 <section id="risk">
@@ -1553,6 +1631,12 @@ footer{
             <td style="padding:12px 10px;text-align:center;color:var(--dim)">Your wallet</td>
             <td style="padding:12px 10px;text-align:center;color:var(--green);font-weight:700;background:rgba(0,212,255,.04)">✅ Your wallet</td>
           </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+            <td style="padding:12px 10px;color:var(--bright);font-weight:600">Mobile dashboard</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--dim)">❌ Telegram only</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--red)">⚠️ Desktop UI</td>
+            <td style="padding:12px 10px;text-align:center;color:var(--green);font-weight:700;background:rgba(0,212,255,.04)">✅ iOS · Android · Desktop</td>
+          </tr>
           <tr>
             <td style="padding:12px 10px;color:var(--bright);font-weight:600">12-month cost</td>
             <td style="padding:12px 10px;text-align:center;color:var(--red);font-weight:700">$1,188 – $2,388</td>
@@ -1580,7 +1664,7 @@ footer{
     <div class="cloud-section reveal">
       <div class="cloud-label">
         <div class="cloud-label-badge" style="background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.4)">
-          ☁️ &nbsp;<span style="color:var(--cyan)">Cloud — Recommended</span>&nbsp; — Zero setup · Hosted by Z.M · Telegram bot included
+          ☁️ &nbsp;<span style="color:var(--cyan)">Cloud — Recommended</span>&nbsp; — Zero setup · 📱 iOS &amp; Android · Hosted by Z.M
         </div>
       </div>
       <div class="cloud-grid">
@@ -1594,7 +1678,7 @@ footer{
             <div class="cf-item"><div class="cf-dot"></div>All 27 markets</div>
             <div class="cf-item"><div class="cf-dot"></div>Telegram bot alerts</div>
             <div class="cf-item"><div class="cf-dot"></div>Cloud hosted 24/7</div>
-            <div class="cf-item"><div class="cf-dot"></div>No PC needed</div>
+            <div class="cf-item"><div class="cf-dot"></div>iOS, Android &amp; Desktop</div>
             <div class="cf-item"><div class="cf-dot"></div>Web dashboard</div>
           </div>
           <a class="cloud-btn" href="https://buy.stripe.com/6oUfZg0WC7a10zbgjnbAs00">Subscribe</a>
@@ -1611,7 +1695,7 @@ footer{
             <div class="cf-item"><div class="cf-dot"></div>All 27 markets</div>
             <div class="cf-item"><div class="cf-dot"></div>Telegram bot alerts</div>
             <div class="cf-item"><div class="cf-dot"></div>Cloud hosted 24/7</div>
-            <div class="cf-item"><div class="cf-dot"></div>No PC needed</div>
+            <div class="cf-item"><div class="cf-dot"></div>iOS, Android &amp; Desktop</div>
             <div class="cf-item"><div class="cf-dot"></div>Priority support</div>
           </div>
           <a class="cloud-btn" style="border-color:rgba(0,212,255,.4)" href="https://buy.stripe.com/bJe5kC7l051T6Xz3wBbAs01">Subscribe</a>
@@ -1627,7 +1711,7 @@ footer{
             <div class="cf-item"><div class="cf-dot"></div>All 27 markets</div>
             <div class="cf-item"><div class="cf-dot"></div>Telegram bot alerts</div>
             <div class="cf-item"><div class="cf-dot"></div>Cloud hosted 24/7</div>
-            <div class="cf-item"><div class="cf-dot"></div>No PC needed</div>
+            <div class="cf-item"><div class="cf-dot"></div>iOS, Android &amp; Desktop</div>
             <div class="cf-item"><div class="cf-dot"></div>Priority support</div>
           </div>
           <a class="cloud-btn" href="https://buy.stripe.com/5kQ28qcFk7a11Df7MRbAs02">Subscribe</a>
@@ -1643,7 +1727,7 @@ footer{
             <div class="cf-item"><div class="cf-dot"></div>All 27 markets</div>
             <div class="cf-item"><div class="cf-dot"></div>Telegram bot alerts</div>
             <div class="cf-item"><div class="cf-dot"></div>Cloud hosted 24/7</div>
-            <div class="cf-item"><div class="cf-dot"></div>No PC needed</div>
+            <div class="cf-item"><div class="cf-dot"></div>iOS, Android &amp; Desktop</div>
             <div class="cf-item"><div class="cf-dot"></div>VIP direct access</div>
           </div>
           <a class="cloud-btn" href="https://buy.stripe.com/aFafZg5cS7a1gy96INbAs03">Subscribe</a>
@@ -1785,6 +1869,10 @@ footer{
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Do I need my own Hyperliquid wallet?<span class="faq-icon">+</span></div>
         <div class="faq-a">Yes — both tiers connect to <strong>your own Hyperliquid wallet via API key</strong>. We never custody your funds. Hyperliquid is a decentralised perpetual futures exchange — sign up at hyperliquid.xyz, fund your wallet, generate an API key, paste it into the dashboard.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" style="color:var(--cyan)">📱 Do I need a computer to use the cloud bot?<span class="faq-icon">+</span></div>
+        <div class="faq-a"><strong>No — your phone is enough.</strong> The dashboard at <strong>dashboard.zm-bot.com</strong> is a fully responsive web app that works on iOS Safari, Android Chrome, iPad, and any desktop browser. No App Store install. Bookmark it to your home screen and it behaves like a native app — see today's P&amp;L, close positions, watch live trades, all from the lock screen if you want. Cloud customers get the same dashboard scoped to their own account.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Can I cancel cloud anytime?<span class="faq-icon">+</span></div>
