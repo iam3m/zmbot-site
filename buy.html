@@ -129,6 +129,29 @@ h1{font-family:var(--sans);font-size:36px;font-weight:800;color:var(--bright);le
 }
 .next-step .tg-link:hover{border-color:var(--cyan);color:var(--cyan)}
 
+/* ── POLICY AGREEMENT ── */
+.policy-agree{
+  max-width:640px;margin:0 auto 32px;padding:16px 20px;
+  background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--orange);
+  border-radius:8px;
+}
+.policy-agree label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:13px;line-height:1.55}
+.policy-agree input[type="checkbox"]{
+  margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer;
+  accent-color:var(--orange);
+}
+.policy-agree .agree-text{color:var(--text)}
+.policy-agree a{color:var(--orange);text-decoration:underline;text-underline-offset:2px}
+.policy-agree a:hover{color:var(--cyan)}
+.policy-agree.shake{animation:agreeshake .4s ease-in-out}
+@keyframes agreeshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* gate buy buttons until agreed */
+body:not(.policy-agreed) .plan-btn,
+body:not(.policy-agreed) .standalone-btn{
+  opacity:.45;pointer-events:none;filter:grayscale(.5);
+}
+
 /* ── FOOTER ── */
 footer{margin-top:48px;text-align:center;color:var(--dim);font-size:12px;font-family:var(--font);line-height:1.8}
 footer a{color:var(--text)}
@@ -177,6 +200,18 @@ body[data-lang="ru"] [data-i18n="ru"]{display:revert}
     </p>
 
   </section>
+
+  <!-- ── REFUND POLICY AGREEMENT (required before buy) ── -->
+  <div class="policy-agree" id="policyAgree">
+    <label>
+      <input type="checkbox" id="policyAgreeChk">
+      <span class="agree-text">
+        <span data-i18n="en">I have read and agree to the <a href="/refund-policy.html" target="_blank" rel="noopener">Refund &amp; Cancellation Policy</a> — including the 14-day Cloud / 30-day Standalone money-back window and the one-refund-per-customer rule.</span>
+        <span data-i18n="sr">Pročitao/la sam i prihvatam <a href="/refund-policy.html" target="_blank" rel="noopener">Politiku povraćaja i otkazivanja</a> — uključujući 14-dnevni Cloud / 30-dnevni Standalone rok za povraćaj i pravilo "jedan povraćaj po korisniku".</span>
+        <span data-i18n="ru">Я прочитал(а) и принимаю <a href="/refund-policy.html" target="_blank" rel="noopener">Политику возврата и отмены</a> — включая 14-дневное Cloud / 30-дневное Standalone окно возврата и правило "один возврат на покупателя".</span>
+      </span>
+    </label>
+  </div>
 
   <!-- ── PLANS ── -->
   <div class="plans">
@@ -370,6 +405,12 @@ body[data-lang="ru"] [data-i18n="ru"]{display:revert}
     <div>
       <a href="https://zm-bot.com/">zm-bot.com</a>
       &nbsp;·&nbsp;
+      <a href="/refund-policy.html">
+        <span data-i18n="en">Refund Policy</span>
+        <span data-i18n="sr">Politika povraćaja</span>
+        <span data-i18n="ru">Политика возврата</span>
+      </a>
+      &nbsp;·&nbsp;
       <a href="mailto:zoran@miljak.me">zoran@miljak.me</a>
       &nbsp;·&nbsp;
       <a href="https://t.me/iam3m">@iam3m</a>
@@ -406,6 +447,34 @@ body[data-lang="ru"] [data-i18n="ru"]{display:revert}
   setLang(initial);
 
   buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+
+  // ── REFUND POLICY AGREEMENT GATE ───────────────
+  const chk = document.getElementById('policyAgreeChk');
+  const agreeBox = document.getElementById('policyAgree');
+  const buyBtns = document.querySelectorAll('.plan-btn, .standalone-btn');
+
+  function setAgreed(v){
+    body.classList.toggle('policy-agreed', v);
+  }
+  setAgreed(false);
+
+  chk.addEventListener('change', () => setAgreed(chk.checked));
+
+  // If a user clicks a disabled buy button, shake the agreement and scroll to it
+  buyBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      if (!body.classList.contains('policy-agreed')){
+        e.preventDefault();
+        e.stopPropagation();
+        agreeBox.classList.remove('shake');
+        // reflow → restart animation
+        void agreeBox.offsetWidth;
+        agreeBox.classList.add('shake');
+        agreeBox.scrollIntoView({behavior:'smooth', block:'center'});
+        chk.focus();
+      }
+    });
+  });
 })();
 </script>
 

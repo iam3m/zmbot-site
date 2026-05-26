@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZMBOT — Refund & Cancellation Policy</title>
+<meta name="description" content="ZMBOT refund and cancellation policy for Standalone (Gumroad) and Cloud (Stripe subscription) tiers.">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='3' y='24' font-size='22' font-family='monospace' font-weight='bold' fill='%23ff8c00'>Z</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;--bg1:#0a0e14;--bg2:#0d1117;--bg3:#131820;
+  --border:#1e2a3a;--border2:#253040;
+  --text:#c5cdd8;--dim:#5a6a7a;--bright:#e8edf2;
+  --orange:#ff8c00;
+  --green:#00d26a;
+  --cyan:#00d4ff;
+  --font:'IBM Plex Mono',monospace;
+  --sans:'IBM Plex Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+.wrap{max-width:780px;margin:0 auto;padding:32px 20px 80px}
+
+/* header */
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.logo{font-family:var(--font);font-weight:700;font-size:18px;color:var(--bright);letter-spacing:.5px}
+.logo .z{color:var(--orange)}
+.lang-switch{display:flex;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:4px}
+.lang-switch button{
+  font-family:var(--font);font-size:12px;font-weight:600;
+  background:transparent;color:var(--dim);border:0;
+  padding:6px 12px;border-radius:5px;cursor:pointer;transition:all .2s
+}
+.lang-switch button:hover{color:var(--text)}
+.lang-switch button.active{background:var(--orange);color:#000}
+
+/* hero */
+.hero{text-align:left;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+h1{font-family:var(--sans);font-size:32px;font-weight:800;color:var(--bright);letter-spacing:-.5px;line-height:1.15;margin-bottom:10px}
+.meta{font-family:var(--font);font-size:12px;color:var(--dim);letter-spacing:.5px}
+
+/* section */
+.policy-section{margin-bottom:36px}
+.policy-section h2{
+  font-family:var(--sans);font-size:20px;font-weight:700;color:var(--bright);
+  margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);
+}
+.policy-section h3{
+  font-family:var(--sans);font-size:15px;font-weight:700;color:var(--orange);
+  margin:20px 0 8px;
+}
+.policy-section p{margin-bottom:12px}
+.policy-section ul{margin:8px 0 16px 22px}
+.policy-section li{margin-bottom:6px}
+.policy-section strong{color:var(--bright)}
+
+.callout{
+  background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--orange);
+  padding:14px 18px;margin:14px 0;border-radius:6px;
+}
+.callout-cyan{border-left-color:var(--cyan)}
+.callout-green{border-left-color:var(--green)}
+
+/* footer */
+footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);text-align:center;color:var(--dim);font-size:12px;font-family:var(--font);line-height:1.8}
+footer a{color:var(--text)}
+footer a:hover{color:var(--orange)}
+
+/* i18n */
+[data-i18n]{display:none}
+body[data-lang="en"] [data-i18n="en"],
+body[data-lang="sr"] [data-i18n="sr"],
+body[data-lang="ru"] [data-i18n="ru"]{display:revert}
+</style>
+</head>
+<body data-lang="en">
+
+<div class="wrap">
+
+  <header>
+    <a href="https://zm-bot.com/" class="logo"><span class="z">Z</span>MBOT</a>
+    <div class="lang-switch" role="tablist">
+      <button data-set-lang="en" class="active">EN</button>
+      <button data-set-lang="sr">SR</button>
+      <button data-set-lang="ru">RU</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>
+      <span data-i18n="en">Refund &amp; Cancellation Policy</span>
+      <span data-i18n="sr">Politika povraćaja i otkazivanja</span>
+      <span data-i18n="ru">Политика возврата и отмены</span>
+    </h1>
+    <div class="meta">
+      <span data-i18n="en">Effective 2026-05-27 · Applies to all purchases from this date onward</span>
+      <span data-i18n="sr">Stupa na snagu 27.05.2026. · Primenjuje se na sve kupovine od ovog datuma</span>
+      <span data-i18n="ru">Действует с 27.05.2026 · Применяется ко всем покупкам с этой даты</span>
+    </div>
+  </section>
+
+  <!-- ── 1. STANDALONE ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">1. Standalone version — Gumroad, $249 one-time</span>
+      <span data-i18n="sr">1. Standalone verzija — Gumroad, $249 jednokratno</span>
+      <span data-i18n="ru">1. Standalone-версия — Gumroad, $249 разовая оплата</span>
+    </h2>
+
+    <div class="callout callout-green">
+      <p data-i18n="en"><strong>30-day money-back guarantee.</strong> Email zoran@miljak.me with your Gumroad order number within 30 days of purchase for a full refund.</p>
+      <p data-i18n="sr"><strong>Garancija povraćaja novca 30 dana.</strong> Pošalji email na zoran@miljak.me sa brojem narudžbine sa Gumroad-a u roku od 30 dana od kupovine za pun povraćaj.</p>
+      <p data-i18n="ru"><strong>Гарантия возврата денег 30 дней.</strong> Напишите на zoran@miljak.me с номером заказа Gumroad в течение 30 дней с момента покупки для полного возврата.</p>
+    </div>
+
+    <p>
+      <span data-i18n="en">Refunds are issued in good faith. We reserve the right to decline a refund in the following cases:</span>
+      <span data-i18n="sr">Povraćaji se izdaju u dobroj veri. Zadržavamo pravo da odbijemo povraćaj u sledećim slučajevima:</span>
+      <span data-i18n="ru">Возвраты осуществляются добросовестно. Мы оставляем за собой право отказать в возврате в следующих случаях:</span>
+    </p>
+    <ul>
+      <li><span data-i18n="en">The customer has previously received a refund for any ZMBOT product (Standalone or Cloud).</span>
+          <span data-i18n="sr">Korisnik je ranije već dobio povraćaj za bilo koji ZMBOT proizvod (Standalone ili Cloud).</span>
+          <span data-i18n="ru">Покупатель ранее уже получил возврат за любой продукт ZMBOT (Standalone или Cloud).</span></li>
+      <li><span data-i18n="en">The license has been used to execute more than 200 trades total (live or dry-run combined).</span>
+          <span data-i18n="sr">Licenca je korišćena za više od 200 trgovina (live ili dry-run zajedno).</span>
+          <span data-i18n="ru">Лицензия использована для более чем 200 сделок (live или dry-run суммарно).</span></li>
+      <li><span data-i18n="en">Multiple licenses have been purchased from the same customer to evade the one-refund rule.</span>
+          <span data-i18n="sr">Više licenci je kupljeno od strane istog korisnika kako bi se zaobišlo pravilo "jedan povraćaj".</span>
+          <span data-i18n="ru">Несколько лицензий приобретены одним покупателем с целью обойти правило "один возврат".</span></li>
+    </ul>
+
+    <p>
+      <span data-i18n="en">After 30 days, all sales are final.</span>
+      <span data-i18n="sr">Posle 30 dana, sve prodaje su konačne.</span>
+      <span data-i18n="ru">По истечении 30 дней все продажи являются окончательными.</span>
+    </p>
+  </section>
+
+  <!-- ── 2. CLOUD ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">2. Cloud version — Stripe subscription (from $119/mo)</span>
+      <span data-i18n="sr">2. Cloud verzija — Stripe pretplata (od $119/mes)</span>
+      <span data-i18n="ru">2. Cloud-версия — Stripe-подписка (от $119/мес)</span>
+    </h2>
+
+    <div class="callout callout-cyan">
+      <p data-i18n="en"><strong>Cancel anytime — free.</strong> Future billing stops immediately. You retain access through the end of your already-paid period.</p>
+      <p data-i18n="sr"><strong>Otkazivanje u bilo kom trenutku — besplatno.</strong> Buduća naplata se odmah zaustavlja. Zadržavaš pristup do kraja već plaćenog perioda.</p>
+      <p data-i18n="ru"><strong>Отмена в любой момент — бесплатно.</strong> Будущие списания прекращаются немедленно. Доступ сохраняется до конца уже оплаченного периода.</p>
+    </div>
+
+    <div class="callout callout-green">
+      <p data-i18n="en"><strong>14-day money-back guarantee.</strong> Within 14 days of a successful Stripe charge, email zoran@miljak.me to request a full refund of that charge. Refunds are issued in good faith.</p>
+      <p data-i18n="sr"><strong>Garancija povraćaja novca 14 dana.</strong> U roku od 14 dana od uspešne Stripe naplate, pošalji email na zoran@miljak.me za pun povraćaj te uplate. Povraćaji se izdaju u dobroj veri.</p>
+      <p data-i18n="ru"><strong>Гарантия возврата денег 14 дней.</strong> В течение 14 дней после успешного Stripe-списания напишите на zoran@miljak.me для полного возврата этой суммы. Возвраты осуществляются добросовестно.</p>
+    </div>
+
+    <p>
+      <span data-i18n="en">We reserve the right to decline a Cloud refund where one or more of the following fair-use conditions apply:</span>
+      <span data-i18n="sr">Zadržavamo pravo da odbijemo Cloud povraćaj kada se primenjuje neki od sledećih uslova fer korišćenja:</span>
+      <span data-i18n="ru">Мы оставляем за собой право отказать в возврате по Cloud, если применимо одно или несколько из следующих условий честного использования:</span>
+    </p>
+    <ul>
+      <li><span data-i18n="en">The customer has previously received a refund for any ZMBOT product (Standalone or Cloud) — see Section 4.</span>
+          <span data-i18n="sr">Korisnik je ranije već dobio povraćaj za bilo koji ZMBOT proizvod (Standalone ili Cloud) — vidi Sekciju 4.</span>
+          <span data-i18n="ru">Покупатель ранее уже получил возврат за любой продукт ZMBOT (Standalone или Cloud) — см. Раздел 4.</span></li>
+      <li><span data-i18n="en">The customer has switched the bot from dry-run to live trading <strong>and</strong> executed at least one real fill on Hyperliquid (i.e. the software has been used for its intended purpose with real capital).</span>
+          <span data-i18n="sr">Korisnik je prebacio bota iz dry-run u live mod <strong>i</strong> izvršio bar jedno realno punjenje na Hyperliquid-u (tj. softver je korišćen u svojoj nameni sa realnim kapitalom).</span>
+          <span data-i18n="ru">Покупатель переключил бота из dry-run в live <strong>и</strong> исполнил хотя бы одну реальную сделку на Hyperliquid (т.е. ПО использовалось по назначению с реальным капиталом).</span></li>
+      <li><span data-i18n="en">The customer has generated more than <strong>200 trades total</strong> (live and dry-run combined).</span>
+          <span data-i18n="sr">Korisnik je generisao više od <strong>200 trgovina ukupno</strong> (live i dry-run zajedno).</span>
+          <span data-i18n="ru">Покупатель сгенерировал более <strong>200 сделок суммарно</strong> (live и dry-run вместе).</span></li>
+      <li><span data-i18n="en">The customer has filed a chargeback with their card provider — see Section 5.</span>
+          <span data-i18n="sr">Korisnik je podneo chargeback kod svoje banke / kartice — vidi Sekciju 5.</span>
+          <span data-i18n="ru">Покупатель подал chargeback в свой банк/карту — см. Раздел 5.</span></li>
+      <li><span data-i18n="en">Multiple subscriptions have been purchased by the same customer to evade the one-refund rule.</span>
+          <span data-i18n="sr">Isti korisnik je kupio više pretplata kako bi zaobišao pravilo "jedan povraćaj".</span>
+          <span data-i18n="ru">Один покупатель приобрёл несколько подписок с целью обойти правило "один возврат".</span></li>
+    </ul>
+
+    <p>
+      <span data-i18n="en">After 14 days, refunds of past charges are not available. Cancellation stops future charges from the next billing cycle.</span>
+      <span data-i18n="sr">Posle 14 dana, povraćaji već naplaćenih iznosa nisu dostupni. Otkazivanje zaustavlja buduće naplate od sledećeg ciklusa.</span>
+      <span data-i18n="ru">По истечении 14 дней возврат уже списанных сумм невозможен. Отмена прекращает будущие списания со следующего цикла.</span>
+    </p>
+  </section>
+
+  <!-- ── 3. DEFINITION OF USE ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">3. Definition of "use"</span>
+      <span data-i18n="sr">3. Definicija "korišćenja"</span>
+      <span data-i18n="ru">3. Определение "использования"</span>
+    </h2>
+
+    <p>
+      <span data-i18n="en">For both tiers, the following actions count as using the product:</span>
+      <span data-i18n="sr">Za oba paketa, sledeće radnje se računaju kao korišćenje proizvoda:</span>
+      <span data-i18n="ru">Для обоих тарифов следующие действия считаются использованием продукта:</span>
+    </p>
+    <ul>
+      <li><span data-i18n="en">Activating the standalone Gumroad license (any successful license-verify call counts).</span>
+          <span data-i18n="sr">Aktivacija standalone Gumroad licence (svaki uspešan license-verify poziv se računa).</span>
+          <span data-i18n="ru">Активация standalone Gumroad-лицензии (любой успешный license-verify вызов).</span></li>
+      <li><span data-i18n="en">Completing the <code>/setup</code> configuration on the cloud bot — including connecting your Hyperliquid wallet, entering an API key, or setting <code>bet_size</code>.</span>
+          <span data-i18n="sr">Završavanje <code>/setup</code>-a na cloud botu — uključujući povezivanje Hyperliquid novčanika, unos API ključa, ili postavljanje <code>bet_size</code>-a.</span>
+          <span data-i18n="ru">Завершение <code>/setup</code> на cloud-боте — включая подключение Hyperliquid-кошелька, ввод API-ключа или установку <code>bet_size</code>.</span></li>
+      <li><span data-i18n="en">Generating any trade signals, simulated trades, or live trades — <strong>including in dry-run / paper-trading mode</strong>.</span>
+          <span data-i18n="sr">Generisanje bilo kog signala, simuliranih ili live trgovina — <strong>uključujući dry-run / paper-trading mod</strong>.</span>
+          <span data-i18n="ru">Генерация любых торговых сигналов, симулированных или live сделок — <strong>включая dry-run / paper-trading режим</strong>.</span></li>
+      <li><span data-i18n="en">Accessing the customer dashboard after the welcome email has been sent.</span>
+          <span data-i18n="sr">Pristupanje korisničkom dashboard-u nakon poslatog welcome email-a.</span>
+          <span data-i18n="ru">Доступ к клиентскому дашборду после отправки welcome-email.</span></li>
+    </ul>
+
+    <div class="callout">
+      <p data-i18n="en"><strong>Dry-run mode is a fully-supported, paid feature of ZMBOT, not a free trial.</strong> Brief evaluation in dry-run mode is fine and expected — the per-tier trade-count thresholds in Sections 1 and 2 (200 trades) define when usage becomes heavy enough to disqualify a refund.</p>
+      <p data-i18n="sr"><strong>Dry-run mod je u potpunosti podržana, plaćena funkcionalnost ZMBOT-a, a NE besplatna probna verzija.</strong> Kraća evaluacija u dry-run modu je u redu i očekivana — pragovi broja trgovina po paketu iz Sekcija 1 i 2 (200 trgovina) definišu kada korišćenje postaje dovoljno intenzivno da diskvalifikuje povraćaj.</p>
+      <p data-i18n="ru"><strong>Dry-run режим — это полноценная, платная функция ZMBOT, а НЕ бесплатная пробная версия.</strong> Краткая оценка в dry-run режиме приемлема и ожидаема — пороги количества сделок по тарифу из Разделов 1 и 2 (200 сделок) определяют, когда использование становится достаточно активным, чтобы дисквалифицировать возврат.</p>
+    </div>
+  </section>
+
+  <!-- ── 4. ONE REFUND ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">4. One refund per customer</span>
+      <span data-i18n="sr">4. Jedan povraćaj po korisniku</span>
+      <span data-i18n="ru">4. Один возврат на клиента</span>
+    </h2>
+    <p>
+      <span data-i18n="en">A customer who has received a refund for any ZMBOT product (Standalone or Cloud) is <strong>not eligible</strong> for a refund on any subsequent purchase. Repeat purchases by previously-refunded customers are sold as-is and are final. We reserve the right to decline service to customers showing a pattern of purchase-then-refund behaviour.</span>
+      <span data-i18n="sr">Korisnik koji je ranije dobio povraćaj za bilo koji ZMBOT proizvod (Standalone ili Cloud) <strong>nema pravo</strong> na povraćaj za bilo koju kasniju kupovinu. Naknadne kupovine takvih korisnika su prodate "as-is" i konačne. Zadržavamo pravo da odbijemo uslugu korisnicima koji pokazuju obrazac ponavljanog kupovanja-i-vraćanja.</span>
+      <span data-i18n="ru">Покупатель, ранее получивший возврат за любой продукт ZMBOT (Standalone или Cloud), <strong>не имеет права</strong> на возврат при последующих покупках. Повторные покупки таких клиентов продаются "как есть" и являются окончательными. Мы оставляем за собой право отказать в обслуживании клиентам с шаблоном поведения "покупка-возврат".</span>
+    </p>
+  </section>
+
+  <!-- ── 5. CHARGEBACKS ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">5. Chargebacks</span>
+      <span data-i18n="sr">5. Chargeback-ovi (osporavanja sa kartice)</span>
+      <span data-i18n="ru">5. Chargeback (оспаривания по карте)</span>
+    </h2>
+    <p>
+      <span data-i18n="en">If a refund is denied per this policy and the customer files a chargeback with their card provider:</span>
+      <span data-i18n="sr">Ako je povraćaj odbijen prema ovoj politici, a korisnik podnese chargeback kod svoje banke / kartice:</span>
+      <span data-i18n="ru">Если в возврате отказано согласно данной политике, а покупатель подаёт chargeback в свой банк/карту:</span>
+    </p>
+    <ul>
+      <li><span data-i18n="en">The customer is permanently banned from purchasing or accessing any current or future ZMBOT product or service.</span>
+          <span data-i18n="sr">Korisnik je trajno isključen iz kupovine ili pristupa bilo kom trenutnom ili budućem ZMBOT proizvodu ili usluzi.</span>
+          <span data-i18n="ru">Покупатель навсегда лишается возможности приобретать или использовать любые текущие и будущие продукты и услуги ZMBOT.</span></li>
+      <li><span data-i18n="en">The dispute will be defended with full evidence: configuration logs, trade history, dashboard usage, Hyperliquid wallet activity, and timestamps of all customer-side actions.</span>
+          <span data-i18n="sr">Spor će biti branjen punim dokazima: konfiguracioni log-ovi, istorija trgovine, korišćenje dashboard-a, aktivnost Hyperliquid novčanika, i timestamp-ovi svih korisničkih radnji.</span>
+          <span data-i18n="ru">Спор будет защищаться с полными доказательствами: лог конфигурации, история сделок, использование дашборда, активность Hyperliquid-кошелька, временные метки всех действий клиента.</span></li>
+      <li><span data-i18n="en">Recurring access (cloud bot, license keys) is terminated immediately upon dispute filing.</span>
+          <span data-i18n="sr">Pristup (cloud bot, licencni ključevi) se odmah ukida nakon podnošenja spora.</span>
+          <span data-i18n="ru">Доступ (cloud-бот, лицензионные ключи) прекращается немедленно после подачи спора.</span></li>
+    </ul>
+  </section>
+
+  <!-- ── 6. DISCRETIONARY ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">6. Discretionary refunds</span>
+      <span data-i18n="sr">6. Diskrecioni povraćaji</span>
+      <span data-i18n="ru">6. Возвраты на наше усмотрение</span>
+    </h2>
+    <p>
+      <span data-i18n="en">We may, at our sole discretion, grant refunds outside this policy in cases of confirmed technical failure on our side, or serious personal hardship. To request a discretionary refund, email zoran@miljak.me with full details. There is no entitlement to a discretionary refund.</span>
+      <span data-i18n="sr">Možemo, prema sopstvenom nahođenju, odobriti povraćaje van ove politike u slučajevima potvrđenog tehničkog kvara sa naše strane ili ozbiljne lične nužde. Za zahtev za diskrecioni povraćaj, pošalji email na zoran@miljak.me sa potpunim detaljima. Ne postoji pravo na diskrecioni povraćaj.</span>
+      <span data-i18n="ru">Мы можем, по нашему собственному усмотрению, предоставить возврат вне рамок данной политики в случаях подтверждённого технического сбоя с нашей стороны или серьёзных личных обстоятельств. Для запроса напишите на zoran@miljak.me с подробностями. Право на такой возврат не гарантируется.</span>
+    </p>
+  </section>
+
+  <!-- ── 7. RISK DISCLAIMER ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">7. Trading-loss disclaimer</span>
+      <span data-i18n="sr">7. Klauzula o gubicima u trgovanju</span>
+      <span data-i18n="ru">7. Оговорка о торговых убытках</span>
+    </h2>
+    <p>
+      <span data-i18n="en">ZMBOT is a software tool, not financial advice. Trading cryptocurrencies and perpetual futures involves substantial risk of loss. Past performance does not indicate future results. <strong>Trading losses incurred while using the bot in live mode are NOT grounds for a refund.</strong> You are solely responsible for trading outcomes.</span>
+      <span data-i18n="sr">ZMBOT je softverski alat, nije finansijski savet. Trgovanje kriptovalutama i perpetual futures-ima nosi značajan rizik gubitka. Prošli rezultati ne garantuju buduće. <strong>Gubici u trgovanju nastali tokom korišćenja bota u live modu NISU osnov za povraćaj.</strong> Vi ste isključivo odgovorni za ishode trgovine.</span>
+      <span data-i18n="ru">ZMBOT — это программный инструмент, а не финансовый совет. Торговля криптовалютами и бессрочными фьючерсами связана со значительным риском убытков. Прошлые результаты не гарантируют будущие. <strong>Торговые убытки, понесённые при использовании бота в live режиме, НЕ являются основанием для возврата.</strong> Вы несёте полную ответственность за результаты торговли.</span>
+    </p>
+  </section>
+
+  <!-- ── 8. CONTACT ── -->
+  <section class="policy-section">
+    <h2>
+      <span data-i18n="en">8. Contact</span>
+      <span data-i18n="sr">8. Kontakt</span>
+      <span data-i18n="ru">8. Контакт</span>
+    </h2>
+    <p>
+      <span data-i18n="en">For all refund requests: <strong><a href="mailto:zoran@miljak.me">zoran@miljak.me</a></strong><br>For technical support: Telegram <a href="https://t.me/iam3m" target="_blank" rel="noopener">@iam3m</a></span>
+      <span data-i18n="sr">Za sve zahteve za povraćaj: <strong><a href="mailto:zoran@miljak.me">zoran@miljak.me</a></strong><br>Za tehničku podršku: Telegram <a href="https://t.me/iam3m" target="_blank" rel="noopener">@iam3m</a></span>
+      <span data-i18n="ru">Для всех запросов на возврат: <strong><a href="mailto:zoran@miljak.me">zoran@miljak.me</a></strong><br>Для технической поддержки: Telegram <a href="https://t.me/iam3m" target="_blank" rel="noopener">@iam3m</a></span>
+    </p>
+  </section>
+
+  <footer>
+    <div>
+      <a href="https://zm-bot.com/">zm-bot.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://terminal3m.com/">terminal3m.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://zm-bot.com/buy.html">Buy</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:zoran@miljak.me">zoran@miljak.me</a>
+      &nbsp;·&nbsp;
+      <a href="https://t.me/iam3m">@iam3m</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  const body = document.body;
+  const buttons = document.querySelectorAll('.lang-switch button[data-set-lang]');
+  const validLangs = ['en','sr','ru'];
+
+  function setLang(lang){
+    if (!validLangs.includes(lang)) lang = 'en';
+    body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.setLang === lang));
+    try { localStorage.setItem('zmbot_lang', lang); } catch(e){}
+  }
+
+  // init from URL ?lang= → storage → browser → default
+  let initial = 'en';
+  const url = new URLSearchParams(location.search).get('lang');
+  if (url) initial = url;
+  else { try { initial = localStorage.getItem('zmbot_lang') || initial; } catch(e){} }
+  if (!validLangs.includes(initial)) {
+    const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+    if (validLangs.includes(nav)) initial = nav;
+  }
+  setLang(initial);
+
+  buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.setLang)));
+})();
+</script>
+
+</body>
+</html>
