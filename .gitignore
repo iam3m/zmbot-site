@@ -3,3 +3,7 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+.claude/
+
+# Local scratch/snapshot copies of the site — never deployed
+_*.html
